@@ -47,10 +47,10 @@ for country in zones:
     dtc = date_to_convert.astimezone(pytz.timezone(country[1]))
     if country[1] == "Europe/Madrid":
         # Imprime la hora en formato de 24 horas y una "H" al final
-        dtc = dtc.strftime("%-HH")
+        dtc = dtc.strftime("%HH")
     else:
         # Imprime la hora en formato de 12 horas PM/AM
-        dtc = dtc.strftime("%-I%p")
+        dtc = dtc.strftime("%I%p")
     try:
         times[dtc] = times[dtc] + country[0]
     except KeyError:
@@ -65,4 +65,3 @@ for country in zones:
 for t, c in times.items():
     if c != "X":
         print(t.lower(), c.strip())
-
