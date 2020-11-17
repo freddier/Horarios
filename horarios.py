@@ -1,47 +1,51 @@
 # -*- coding: UTF-8 -*-
 # 👆 Sin lo de arriba no se puede poner emojis
-import pytz, datetime
+import pytz
+import datetime
 
 # Mi script asume la hora de tu PC
 date_to_convert = "2020-11-17 21:00:00"
 # Recuerda: Es la hora de tu PC
 
-date_to_convert = datetime.datetime.strptime(date_to_convert,"%Y-%m-%d %H:%M:%S")
+date_to_convert = datetime.datetime.strptime(
+    date_to_convert, "%Y-%m-%d %H:%M:%S")
 
 print(date_to_convert)
 print("Generando bloque de banderas:")
 print("")
 
-#En orden de tamaño de mercado/prioridad
-zones = [["🇲🇽","America/Mexico_City"],
-    ["🇨🇴","America/Bogota"],
-    ["🇵🇪","America/Lima"],
-    ["🇨🇱","America/Santiago"],
-    ["🇦🇷","America/Buenos_Aires"],
-    ["🇪🇸","Europe/Madrid"],
-    ["🇺🇾","America/Montevideo"],
-    ["🇪🇨","America/Guayaquil"],
-    ["🇬🇹","America/Guatemala"],
-    ["🇸🇻","America/El_Salvador"],
-    ["🇧🇴","America/La_Paz"],
-    ["🇵🇾","America/Asuncion"],
-    ["🇩🇴","America/Santo_Domingo"],
-    ["🇵🇦","America/Panama"],
-    ["🇨🇷","America/Costa_Rica"],
-    ["🇭🇳","America/Tegucigalpa"],
-    ["🇻🇪","America/Caracas"],
-    ["🇳🇮","America/Managua"],
-    ["🇨🇺","Cuba"],
-    ["🇺🇸","US/Pacific"]
+# En orden de tamaño de mercado/prioridad
+zones = [
+    ["🇲🇽", "America/Mexico_City"],
+    ["🇨🇴", "America/Bogota"],
+    ["🇵🇪", "America/Lima"],
+    ["🇨🇱", "America/Santiago"],
+    ["🇦🇷", "America/Buenos_Aires"],
+    ["🇪🇸", "Europe/Madrid"],
+    ["🇺🇾", "America/Montevideo"],
+    ["🇪🇨", "America/Guayaquil"],
+    ["🇬🇹", "America/Guatemala"],
+    ["🇸🇻", "America/El_Salvador"],
+    ["🇧🇴", "America/La_Paz"],
+    ["🇵🇾", "America/Asuncion"],
+    ["🇩🇴", "America/Santo_Domingo"],
+    ["🇵🇦", "America/Panama"],
+    ["🇨🇷", "America/Costa_Rica"],
+    ["🇭🇳", "America/Tegucigalpa"],
+    ["🇻🇪", "America/Caracas"],
+    ["🇳🇮", "America/Managua"],
+    ["🇨🇺", "Cuba"],
+    ["🇺🇸", "US/Pacific"]
 ]
 
-#Inicializamos el diccionario
+# Inicializamos el diccionario
 times = {"00pm": "X"}
 
 # If you need Brazil:
 # ["🇧🇷","America/Sao_Paulo"]
 
-#Los timezones no están derivados de países, sino de ciudades. Aunque la prioridad es por país
+# Los timezones no están derivados de países, sino de ciudades.
+# Aunque la prioridad es por país
 
 for country in zones:
     dtc = date_to_convert.astimezone(pytz.timezone(country[1]))
@@ -56,7 +60,7 @@ for country in zones:
     except KeyError:
         times[dtc] = country[0]
 
-    #Si el país es USA en Pacific, agregar el "PT" frente a bandera de US
+    # Si el país es USA en Pacific, agregar el "PT" frente a bandera de US
     if country[1] == "US/Pacific":
         times[dtc] = times[dtc] + " PT"
 
@@ -65,4 +69,3 @@ for country in zones:
 for t, c in times.items():
     if c != "X":
         print(t.lower(), c.strip())
-
