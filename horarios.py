@@ -66,6 +66,6 @@ for country in zones:
 
     times[dtc] = times[dtc] + " "
 
-for t, c in times.items():
-    if c != "X":
-        print(t.lower(), c.strip())
+for time, flag in times.items():
+    if flag != "X":
+        print(time.lower(), flag.strip())
