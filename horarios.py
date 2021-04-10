@@ -3,8 +3,12 @@
 import pytz
 import datetime
 
-# Mi script asume la hora de tu PC
-date_to_convert = "2020-11-17 21:00:00"
+# Esta es la hora local que asume:
+local_tz = pytz.timezone('America/Bogota')
+
+# YYYY-MM-DD
+# Pon la fecha real o no entenderá cambios de horario (Como cuando Mexico y Colombia cambian 1h)
+date_to_convert = "2021-04-10 15:00:00"
 # Recuerda: Es la hora de tu PC
 
 date_to_convert = datetime.datetime.strptime(
@@ -47,7 +51,10 @@ times = {"00pm": "X"}
 # Los timezones no están derivados de países, sino de ciudades.
 # Aunque la prioridad es por país
 
+date_to_convert = local_tz.localize(date_to_convert)
+
 for country in zones:
+
     dtc = date_to_convert.astimezone(pytz.timezone(country[1]))
     if country[1] == "Europe/Madrid":
         # Imprime la hora en formato de 24 horas y una "H" al final
