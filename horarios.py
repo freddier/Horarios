@@ -2,6 +2,7 @@
 # 👆 Sin lo de arriba no se puede poner emojis
 import pytz
 import datetime
+import json
 
 # Esta es la hora local que asume:
 local_tz = pytz.timezone('America/Bogota')
@@ -19,33 +20,17 @@ print("Generando bloque de banderas:")
 print("")
 
 # En orden de tamaño de mercado/prioridad
-zones = [
-    ["🇲🇽", "America/Mexico_City"],
-    ["🇨🇴", "America/Bogota"],
-    ["🇵🇪", "America/Lima"],
-    ["🇨🇱", "America/Santiago"],
-    ["🇦🇷", "America/Buenos_Aires"],
-    ["🇪🇸", "Europe/Madrid"],
-    ["🇺🇾", "America/Montevideo"],
-    ["🇪🇨", "America/Guayaquil"],
-    ["🇬🇹", "America/Guatemala"],
-    ["🇸🇻", "America/El_Salvador"],
-    ["🇧🇴", "America/La_Paz"],
-    ["🇵🇾", "America/Asuncion"],
-    ["🇩🇴", "America/Santo_Domingo"],
-    ["🇵🇦", "America/Panama"],
-    ["🇨🇷", "America/Costa_Rica"],
-    ["🇭🇳", "America/Tegucigalpa"],
-    ["🇻🇪", "America/Caracas"],
-    ["🇳🇮", "America/Managua"],
-    ["🇨🇺", "Cuba"],
-    ["🇺🇸", "US/Pacific"]
-]
+# Loading the zones from the JSON file
+
+with open('zones.json') as zones_file:
+    zones = json.load(zones_file)
 
 # Inicializamos el diccionario
 times = {"00pm": "X"}
 
 # If you need Brazil:
+# you can add it to the zones.json file
+
 # ["🇧🇷","America/Sao_Paulo"]
 
 # Los timezones no están derivados de países, sino de ciudades.

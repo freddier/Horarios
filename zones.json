@@ -1,0 +1,22 @@
+[
+    ["🇲🇽", "America/Mexico_City"],
+    ["🇨🇴", "America/Bogota"],
+    ["🇵🇪", "America/Lima"],
+    ["🇨🇱", "America/Santiago"],
+    ["🇦🇷", "America/Buenos_Aires"],
+    ["🇪🇸", "Europe/Madrid"],
+    ["🇺🇾", "America/Montevideo"],
+    ["🇪🇨", "America/Guayaquil"],
+    ["🇬🇹", "America/Guatemala"],
+    ["🇸🇻", "America/El_Salvador"],
+    ["🇧🇴", "America/La_Paz"],
+    ["🇵🇾", "America/Asuncion"],
+    ["🇩🇴", "America/Santo_Domingo"],
+    ["🇵🇦", "America/Panama"],
+    ["🇨🇷", "America/Costa_Rica"],
+    ["🇭🇳", "America/Tegucigalpa"],
+    ["🇻🇪", "America/Caracas"],
+    ["🇳🇮", "America/Managua"],
+    ["🇨🇺", "Cuba"],
+    ["🇺🇸", "US/Pacific"]
+]
